@@ -22,7 +22,6 @@ Lavender = #E6E6FA
 Thistle = #D8BFD8
 PeachPuff = #FFDAB9 */
 
-
 @font-face {
     font-family: 'font_pixel'; 
     src: url('fonts/Retro\ Gaming.ttf'); 
@@ -32,8 +31,6 @@ body {
     text-align: center;
     font-family: 'font_pixel';
     background: #1f1f20;
-    font-size: large;
-    /*background: linear-gradient(to bottom, #9370DB, #FFDAB9);*/
 }
 
 .container {
@@ -66,16 +63,12 @@ body {
 }
 
 #navbar {
-    background-color: #151414 !important;
+    background-color: rgb(56, 54, 54) !important;
 }
 
 a {
     color: white !important;
     font-weight: 50rem;
-}
-
-#titulo{
-    color: white !important;
 }
 
 .pulse-button {
@@ -120,7 +113,7 @@ a {
     z-index: 2;
     width: 700px;
     bottom: 60px;
-    left: 300px;
+    left: 350px;
 }
 
 .falas {
@@ -128,12 +121,11 @@ a {
     z-index: 3;
     bottom: 150px;
     right: 0px;
-    font-size: 50px;
+    overflow-wrap: break-word;
 }
 
 .falasTexto {
-    font-size: 25px;
-    left: -20px;
+    font-size: 15px;
     color: #5a2d0e;
 }
 
@@ -142,6 +134,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .botaoRespostas {
@@ -154,66 +147,80 @@ a {
     padding: 20px;
     position: relative;
     z-index: 4;
-    transition: all 0.3s ease;
+    width:400px;
+
 }
 
 .botaoRespostas:active {
     box-shadow: inset -4px 4px 0 #222;
-    transform: scale(1.05);
+
+}
+#verGatinhoBtn {
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 20px;
+    color: pink;
+    background-color: #444;
+    box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+    padding: 20px;
+    position: relative;
+    z-index: 4;
+    width:400px;
+    top: 10px;
 }
 
 .imagemGatinhos {
     position: relative;
     z-index: 3;
-    bottom: 350px;
-    left: 50px;
+    overflow: hidden;
 }
 
 .gatito {
-    width: 300px;
-    animation: tam-animation 5s infinite linear;
+    width: 400px;
+    animation: giraGatinho 5s forwards linear;
     position: absolute;
-    top: 0;
+    top: 0; 
     left: 0;
+    z-index: 3;
+    top: 350px;
+    left: 500px;
+}
+.nomeGatinhoDiv{
+    position: relative;
+    z-index: 3;
+    overflow: hidden;
+}
+.nomeGatinhoh2{
+    width: 400px; 
+    position: absolute;
+    z-index: 3;
+    top: 350px;
+    left: 500px;
+    
+}
+.iniciarAnimacao {
+    animation: subirTexto 5s forwards linear;
 }
 
-@keyframes tam-animation {
-
-    0% {
-        width: 0px;
-        rotate: 0deg;
-    }
-
-    15% {
-        width: 40px;
-        rotate: 0deg;
-    }
-
-    30% {
-        width: 100px;
-        rotate: 0deg;
-    }
-
-    50% {
-        width: 200px;
-        rotate: 90deg;
-    }
-
-    75% {
-        width: 250px;
-        rotate: 180deg;
-    }
-
-    80% {
-        width: 270px;
-    }
-
-    100% {
-        width: 300px;
-        rotate: 360deg;
-        left: 0px;
-    }
+@keyframes subirTexto{
+    from {
+        top: 350px;
+      }
+      to {
+        top: 100px;
+      }
 }
+
+@keyframes giraGatinho {
+    from {
+      width: 0px;
+      transform: rotate(0deg);
+    }
+    to {
+      width: 300px;
+      transform: rotate(360deg);
+    }
+  }
 
 .container-img {
     width: 100%;
@@ -226,22 +233,3 @@ a {
 }
 
 
-#scroll-to-top {
-    position: fixed;
-    bottom: 10px;
-    left: 5px;
-    background-color: #20B2AA;
-    border: #20B2AA;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 10px 20px;
-    transition: all 0.3s ease;
-    color: #000;
-  }
