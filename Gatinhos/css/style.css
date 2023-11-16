@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'font_pixel'; 
+    src: url('fonts/Retro\ Gaming.ttf'); 
+}
+
+body {
+    text-align: center;
+    font-family: 'font_pixel', sans-serif;    
+    background: #1f1f20;
+    font-size: large;
+    /* background-color: #dfbff0;  */
+}
+.container {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    background-color: #2d2d2f;
+}
+
+.containerJogo{
+    position: relative;
+    text-align: center;
+}
+
+#playButton{
+    background-color: #20B2AA;
+    height: 55px;
+    margin: 0 auto;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    padding: 15px 30px;
+    transition: all 0.3s ease;
+}
+
+#playButton:hover{
+    background-color: #1d9b95;
+    border: none;
+}
+
+#navbar{
+    background-color: #151414 !important;
+}
+
+a{
+    color: white !important;
+    font-weight: 50rem;
+}
+
+p{
+    color: white !important;
+    font-size: 1.25rem;
+}
+
+
+h1 {
+    color: white !important;
+    font-size: 3.5rem;
+}
+
+h2 {
+    color: white !important;
+    font-size: 2rem;
+}
+
+#titulo2, #titulo {
+    color: #E6E6FA !important;
+}
+
+#titulo {
+    font-size: 2rem;
+}
+
+#titulo2{
+    margin-top: 50px;
+}
+
+#titulo3 {
+    font-size: 3.5rem;
+}
+
+.pulse-button {
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#logo{
+    height: 70px;
+}
+
+#nav-link{
+    font-weight: 30rem;
+}
+
+
+#cenario{
+    position: relative;
+    z-index: 1;
+    width: 1000px;
+    height: 600px;
+    border-radius: 5px;
+    border: solid 10px pink;
+}
+
+#texto{
+    position: absolute;
+    z-index: 2;
+    width: 700px;
+    bottom: 60px;
+    left: 600px;
+}
+.falas{
+    position: relative;
+    z-index: 3;
+    bottom: 150px;
+    right: 0px;
+    font-size: 50px;
+}
+.falasTexto{
+    font-size: 25px;
+}
+.botoes{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagemGatinhos {
+    position: relative;
+    z-index: 3;
+    bottom: 350px; 
+    left: 50px; 
+}
+
+.parallax-section {
+    height: 550px;
+    position: relative;
+    text-align: center;
+}
+
+
+/*CSS da página de Sobre nós:*/
+
+#botao {
+    background-color: #20B2AA;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    color: #000;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center; 
+}
+
+.card {
+    width: 18rem;
+}
