@@ -39,7 +39,6 @@ body {
     padding-bottom: 5px;
     padding-top: 5px;
     padding-left: -5px;
-
 }
 
 .containerJogo {
@@ -65,6 +64,13 @@ body {
 #navbar {
     background-color: rgb(56, 54, 54) !important;
 }
+
+
+#titulo{
+    color: white !important;
+    font-size: 3.5rem;
+}
+
 
 a {
     color: white !important;
@@ -98,7 +104,6 @@ a {
     font-weight: 30rem;
 }
 
-
 #cenario {
     position: relative;
     z-index: 1;
@@ -125,8 +130,9 @@ a {
 }
 
 .falasTexto {
-    font-size: 15px;
-    color: #5a2d0e;
+   font-size: 15px;
+   color: rgb(65, 65, 65);
+   font-size: large;
 }
 
 .botoes {
@@ -141,25 +147,25 @@ a {
     border: 2px solid #000;
     border-radius: 5px;
     font-size: 20px;
-    color: pink;
+    color: #a27fe9;
     background-color: #444;
     box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
     padding: 20px;
     position: relative;
     z-index: 4;
     width:400px;
-
 }
 
 .botaoRespostas:active {
     box-shadow: inset -4px 4px 0 #222;
 
 }
+
 #verGatinhoBtn {
     border: 2px solid #000;
     border-radius: 5px;
     font-size: 20px;
-    color: pink;
+    color: #a27fe9;
     background-color: #444;
     box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
     padding: 20px;
@@ -167,6 +173,7 @@ a {
     z-index: 4;
     width:400px;
     top: 10px;
+    font-family: 'font_pixel';
 }
 
 .imagemGatinhos {
@@ -232,4 +239,44 @@ a {
     height: 100%;
 }
 
+#scroll-to-top {
+    position: fixed;
+    bottom: 10px;
+    left: 5px;
+    background-color: #20B2AA;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #scroll-to-top:hover {
+    background-color: #177e79;
+  }
+  
+.gatinhos {
+    font-size: 2rem;
+    color: white;
+}
 
+#titulo4 {
+    font-size: 3.5rem;
+}
+
+.card-body, .card-img-top{
+    background-color: #444;
+}
+
+
+.card-text{
+    color: white;
+}
+
+.card{
+    border-radius: 5px;
+    border: 1px solid #444;
+}
