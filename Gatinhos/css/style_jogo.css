@@ -118,15 +118,16 @@ a {
     z-index: 2;
     width: 700px;
     bottom: 60px;
-    left: 350px;
+    left: 500px;
 }
 
 .falas {
     position: relative;
     z-index: 3;
-    bottom: 150px;
+    bottom: 110px;
     right: 0px;
-    overflow-wrap: break-word;
+    text-overflow: clip;
+    /* overflow-wrap: break-word; */
 }
 
 .falasTexto {
@@ -261,6 +262,7 @@ a {
 .gatinhos {
     font-size: 2rem;
     color: white;
+    display: none;
 }
 
 #titulo4 {
