@@ -150,7 +150,7 @@ h2 {
 }
 
 .parallax-section {
-    height: 550px;
+    height: 633px;
     position: relative;
     text-align: center;
 }
@@ -180,4 +180,9 @@ h2 {
 
 .card {
     width: 18rem;
+}
+
+
+.row{
+    margin-left: 250px;
 }
