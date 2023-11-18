@@ -64,23 +64,23 @@ const listaNomesClicados = new LinkedList();
 const cenarios = [
   {
       img: "img/cenario1.png",
-      falas: "qual é sua atividade preferida em grupo?",
+      falas: "Qual é sua atividade preferida em grupo?",
       respostabotao1: "show",
-      respostabotao2: "videogame",
+      respostabotao2: "vídeogame",
       respostabotao3: "piquenique",
       respostabotao4: "exposição de arte"
   },
   {
       img: "img/cenario1.png",
-      falas: "qual palavra melhor descreve seu estilo de musica favorito?",
+      falas: "Qual palavra melhor descreve seu estilo de música favorito?",
       respostabotao1: "eletronica",
       respostabotao2: "classica",
       respostabotao3: "alternativa",
-      respostabotao4: "oeck"
+      respostabotao4: "rock"
   },
   {
     img: "img/cenario1.png",
-    falas: "o que mais te inspira?",
+    falas: "O que mais te inspira?",
     respostabotao1: "autenticidade",
     respostabotao2: "tecnologia",
     respostabotao3: "beleza",
@@ -88,7 +88,7 @@ const cenarios = [
 },
 {
     img: "img/cenario1.png",
-    falas: "se você tivesse que escolher uma cor qual seria?",
+    falas: "Se você tivesse que escolher uma cor qual seria?",
     respostabotao1: "preto",
     respostabotao2: "azul",
     respostabotao3: "branco",
@@ -96,16 +96,16 @@ const cenarios = [
 },
 {
     img: "img/cenario1.png",
-    falas: "qual palavra melhor descreve sua atitude em relação a regras?",
+    falas: "Qual palavra melhor descreve sua atitude em relação a regras?",
     respostabotao1: "desafiador",
-    respostabotao2: "flexivel",
+    respostabotao2: "flexível",
     respostabotao3: "respeitoso",
     respostabotao4: "criativo"
 },
 {
     img: "img/cenario1.png",
-    falas: "como você reage a situaçôes estressantes?",
-    respostabotao1: "distraido",
+    falas: "Como você reage a situações estressantes?",
+    respostabotao1: "distraído",
     respostabotao2: "calmo",
     respostabotao3: "reflexivo",
     respostabotao4: "ignorante"
@@ -239,8 +239,6 @@ function exibirResultadoFinal() {
     // Exibe o resultado final na div do cenário
     const cenaDiv = document.querySelector('.container-img');
 
-    
-
     // Div para o nome do gatinho
     const nomeGatinhoResultadoDiv = document.createElement('h2');
     nomeGatinhoResultadoDiv.classList.add('nomeGatinhoh2', 'iniciarAnimacao');
@@ -278,4 +276,6 @@ function verGatinho() {
     gatinhoResultadoDiv.innerHTML = `<img class="gatito" src="${imagemGatinho}" alt="Gatinho Resultado">`;
     document.body.appendChild(gatinhoResultadoDiv);
     
+
+    document.querySelector(".gatinhos").style.display = "block"
 };
