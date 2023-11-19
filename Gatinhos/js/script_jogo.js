@@ -23,7 +23,6 @@ class LinkedList {
       }
   }
 
-
   remove(data) {
       if (!this.head) {
           return;
@@ -43,7 +42,6 @@ class LinkedList {
       }
   }
 
-
   displayAll() {
       let current = this.head;
       while (current) {
@@ -52,8 +50,6 @@ class LinkedList {
       }
   }
 }
-
-
 
 const img = document.querySelector(".container-imagem");
 
@@ -73,7 +69,7 @@ const cenarios = [
   {
       img: "img/cenario1.png",
       falas: "Qual palavra melhor descreve seu estilo de música favorito?",
-      respostabotao1: "eletronica",
+      respostabotao1: "eletrônica",
       respostabotao2: "classica",
       respostabotao3: "alternativa",
       respostabotao4: "rock"
@@ -257,7 +253,7 @@ function exibirResultadoFinal() {
     const verGatinhoBtn = document.getElementById('verGatinhoBtn');
     verGatinhoBtn.addEventListener('click', function() {
         verGatinho();
-        verGatinhoBtn.disabled = true;
+        jogarNovamenteBtn();
     });
 
     // Adiciona a classe que inicia a animação após todos os elementos serem criados
@@ -265,7 +261,7 @@ function exibirResultadoFinal() {
 }
 
 function verGatinho() {
-    // Adicione lógica para exibir a imagem do gatinho correspondente ao resultado final
+    // Exibi a imagem do gatinho correspondente ao resultado final
     const gatinhoResultadoDiv = document.createElement('div');
     gatinhoResultadoDiv.classList.add('.imagemGatinhos');
 
@@ -279,3 +275,8 @@ function verGatinho() {
 
     document.querySelector(".gatinhos").style.display = "block"
 };
+
+document.getElementById('jogarNovamenteBtn').addEventListener('click', function() {
+    // Recarrega a página para começar o jogo novamente
+    location.reload();
+});
