@@ -112,48 +112,9 @@ h3 {
 #nav-link{
     font-weight: 30rem;
 }
-
-
-
-
-#cenario{
-    position: relative;
-    z-index: 1;
-    width: 1000px;
-    height: 600px;
-    border-radius: 5px;
-    border: solid 10px pink;
-}
-
-#texto{
-    position: absolute;
-    z-index: 2;
-    width: 700px;
-    bottom: 60px;
-    left: 600px;
-}
-.falas{
-    position: relative;
-    z-index: 3;
-    bottom: 150px;
-    right: 0px;
-    font-size: 50px;
-}
-.falasTexto{
-    font-size: 25px;
-}
-.botoes{
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.imagemGatinhos {
-    position: relative;
-    z-index: 3;
-    bottom: 350px; 
-    left: 50px; 
+#gatinhos{
+    width: 150px;
+    height: auto;
 }
 
 .parallax-section {
