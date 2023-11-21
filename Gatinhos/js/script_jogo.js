@@ -105,7 +105,16 @@ const cenarios = [
     respostabotao2: "calmo",
     respostabotao3: "reflexivo",
     respostabotao4: "ignorante"
+},
+{
+    img: "img/cenario1.png",
+    falas: "Você prefere cachorros ou gatos?",
+    respostabotao1: "gatos!",
+    respostabotao2: "gatos!",
+    respostabotao3: "gatos!",
+    respostabotao4: "gatos!"
 }
+
   
       ];
       function atualizarTela(indice) {
@@ -159,9 +168,9 @@ botoes.forEach(function (botao) {
 });
 
 function compararlistas() {
-    const listaGatinho1 = new LinkedList();
-    const listaGatinho2 = new LinkedList();
-    const listaGatinho3 = new LinkedList();
+    const listaGatinho1 = new LinkedList(); ///lysandre
+    const listaGatinho2 = new LinkedList(); //armin
+    const listaGatinho3 = new LinkedList(); //castiel
 
    
     listaGatinho1.insert("1resposta");
@@ -170,7 +179,6 @@ function compararlistas() {
     listaGatinho1.insert("2resposta"); 
     listaGatinho1.insert("1resposta");
     
-
     listaGatinho2.insert("1resposta");
     listaGatinho2.insert("3resposta");
     listaGatinho2.insert("4resposta");
@@ -218,6 +226,8 @@ function calcularPontuacao(listaGatinho, listaComparada) {
 }
 let gatinhoFinal;
 
+
+
 function exibirResultadoFinal() {
     console.log("Fim do jogo!");
     console.log("Itens da lista encadeada:");
@@ -239,7 +249,7 @@ function exibirResultadoFinal() {
     const nomeGatinhoResultadoDiv = document.createElement('h2');
     nomeGatinhoResultadoDiv.classList.add('nomeGatinhoh2', 'iniciarAnimacao');
     nomeGatinhoResultadoDiv.textContent = `Gatinho Final: ${gatinhoFinal}`;
-    
+     
     // Div para o botão "Ver Gatinho"
     const botaoVerGatinhoDiv = document.createElement('div');
     botaoVerGatinhoDiv.classList.add('botaoVerGatinhoResultado');
@@ -249,16 +259,18 @@ function exibirResultadoFinal() {
     cenaDiv.appendChild(nomeGatinhoResultadoDiv);
     cenaDiv.appendChild(botaoVerGatinhoDiv);
 
-    // Desabilita o botão após o primeiro clique
-    const verGatinhoBtn = document.getElementById('verGatinhoBtn');
-    verGatinhoBtn.addEventListener('click', function() {
-        verGatinho();
-        jogarNovamenteBtn();
-    });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     const verGatinhoBtn = document.getElementById('verGatinhoBtn');
+    //     verGatinhoBtn.addEventListener('click', function () {
+    //         verGatinho();
+    //         jogarNovamenteBtn();
+    //     });
+    // });
 
     // Adiciona a classe que inicia a animação após todos os elementos serem criados
     nomeGatinhoResultadoDiv.classList.add('iniciarAnimacao');
 }
+
 
 function verGatinho() {
     // Exibi a imagem do gatinho correspondente ao resultado final
@@ -274,6 +286,9 @@ function verGatinho() {
     
 
     document.querySelector(".gatinhos").style.display = "block"
+
+
+
 };
 
 document.getElementById('jogarNovamenteBtn').addEventListener('click', function() {
