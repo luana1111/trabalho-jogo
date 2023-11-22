@@ -118,7 +118,7 @@ a {
     z-index: 2;
     width: 700px;
     bottom: 60px;
-    left: 500px;
+    left: 400px;
 }
 
 .falas {
@@ -127,13 +127,11 @@ a {
     bottom: 110px;
     right: 0px;
     text-overflow: clip;
-    /* overflow-wrap: break-word; */
 }
 
 .falasTexto {
    font-size: 15px;
    color: rgb(65, 65, 65);
-   font-size: large;
 }
 
 .botoes {
@@ -279,94 +277,6 @@ a {
 
 
 /* CSS para tornar a página responsiva */
-@media (max-width: 768px) {
-  
-    body {
-      font-size: 16px; 
-    }
-  
-    #navbar {
-      padding: 10px; 
-    }
-  
-    .container {
-      border: none; 
-      padding: 10px; 
-    }
-  
-    #cenario {
-      width: 100%; 
-      height: auto; 
-      border: none; 
-    }
-  
-    #texto {
-      width: 90%; 
-      left: 20px; 
-      bottom: 65px; 
-    }
-  
-    .falas {
-      bottom: 70px; 
-      font-size: 0.5rem;
-    }
-
-    .botaoRespostas {
-        width: 60%; 
-        margin-bottom: 8px; 
-    }
-
-    #scroll-to-top {
-        position: fixed;
-        bottom: 10px;
-        left: 5px;
-        background-color: #20B2AA;
-        border: none;
-        border-radius: 5px;
-        color: #000;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 999;
-        
-    }
-
-    #verGatinhoBtn {
-        border: 2px solid #000;
-        border-radius: 5px;
-        font-size: 20px;
-        color: #a27fe9;
-        background-color: #444;
-        box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
-        padding: 20px;
-        position: relative;
-        z-index: 4;
-        width:200px;
-        top: 10px;
-        font-family: 'font_pixel';
-    }
-
-    .gatito {
-        width: 10%; 
-        height: auto; 
-        top: 22%; 
-        left: 10%; 
-        transform: translate(-20%, -20%); 
-      }
-    .nomeGatinhoh2-iniciarAnimacao{
-        left: -20px;
-    }
-
-    .falasTexto {
-        font-size: 12.5px;
-        color: rgb(65, 65, 65);
-        margin-bottom: 15px;
-     }
-      
-  }
-
 @media (max-width: 576px) {
     body {
       font-size: 14px;
@@ -398,12 +308,23 @@ a {
     }
   
     .botaoRespostas {
-      width: 70%;
+      width: 62%;
+      position: relative;
     }
   
     #scroll-to-top {
-      bottom: 20px;
-      left: 10px;
+      position: fixed;
+      bottom: 10px;
+      left: 5px;
+      background-color: #20B2AA;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   
     .gatito {
@@ -456,12 +377,24 @@ a {
     }
   
     .botaoRespostas {
-      width: 70%;
+      width: 62%;
+      position: relative;
+
     }
   
     #scroll-to-top {
-      bottom: 20px;
-      left: 10px;
+      position: fixed;
+      bottom: 10px;
+      left: 5px;
+      background-color: #20B2AA;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   
     .gatito {
@@ -481,242 +414,3 @@ a {
       margin-bottom: 10px;
     }
   }
-  
-  @media (min-width: 765px) {
-    .botaoRespostas {
-      width: 80%;
-    }
-  
-    .gatito {
-      width: 15%;
-      top: 30%;
-      right: 20%;
-    }
-
-    .nomeGatinhoh2{
-        margin-right: 50px;
-    }
-
-    .falasTexto {
-        font-size: 16.5px;
-        margin-bottom: 10px;
-      }
-  }
-  
-  @media (min-width: 768px) {
-    .botaoRespostas {
-      width: 80%;
-    }
-  
-    .gatito {
-      width: 15%;
-      top: 50%;
-      right: 20%;
-    }
-
-    .falasTexto {
-        font-size: 16.5px;
-        margin-bottom: 10px;
-      }
-  }
-  
-  @media (max-width: 768px) {
-  
-    body {
-      font-size: 16px; 
-    }
-  
-    #navbar {
-      padding: 10px; 
-    }
-  
-    .container {
-      border: none; 
-      padding: 10px; 
-    }
-  
-    #cenario {
-      width: 100%; 
-      height: auto; 
-      border: none; 
-    }
-  
-    #texto {
-      width: 90%; 
-      left: 20px; 
-      bottom: 65px; 
-    }
-  
-    .falas {
-      bottom: 70px; 
-      font-size: 0.5rem;
-    }
-
-    .botaoRespostas {
-        width: 60%; 
-        margin-bottom: 8px; 
-    }
-
-    #scroll-to-top {
-        position: fixed;
-        bottom: 10px;
-        left: 5px;
-        background-color: #20B2AA;
-        border: none;
-        border-radius: 5px;
-        color: #000;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 999;
-        
-    }
-
-    #verGatinhoBtn {
-        border: 2px solid #000;
-        border-radius: 5px;
-        font-size: 20px;
-        color: #a27fe9;
-        background-color: #444;
-        box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
-        padding: 20px;
-        position: relative;
-        z-index: 4;
-        width:200px;
-        top: 10px;
-        font-family: 'font_pixel';
-    }
-
-    .gatito {
-        width: 10%; 
-        height: auto; 
-        top: 22%; 
-        left: 10%; 
-        transform: translate(-20%, -20%); 
-      }
-    .nomeGatinhoh2-iniciarAnimacao{
-        left: -20px;
-    }
-
-    .falasTexto {
-        font-size: 12.5px;
-        color: rgb(65, 65, 65);
-        margin-bottom: 15px;
-     }
-      
-  }
-
-@media (max-width: 576px) {
-    body {
-      font-size: 14px;
-    }
-  
-    #navbar {
-      padding: 8px;
-    }
-  
-    .container {
-      padding: 8px;
-    }
-  
-    #cenario {
-      width: 100%;
-      height: auto;
-      border: none;
-    }
-  
-    #texto {
-      width: 90%;
-      left: 10px;
-      bottom: 50px;
-    }
-  
-    .falas {
-      bottom: 60px;
-      font-size: 0.8rem;
-    }
-  
-    .botaoRespostas {
-      width: 70%;
-    }
-  
-    #scroll-to-top {
-      bottom: 20px;
-      left: 10px;
-    }
-  
-    .gatito {
-      width: 20%;
-      height: auto;
-      top: 18%;
-      left: 10%;
-      transform: translate(-20%, -20%);
-    }
-  
-    .nomeGatinhoh2-iniciarAnimacao {
-      left: -10px;
-    }
-  
-    .falasTexto {
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-  }
-  
-
-@media (min-width: 1080px) {
-    body {
-      font-size: 14px;
-    }
-  
-    #navbar {
-      padding: 8px;
-    }
-  
-    .container {
-      padding: 8px;
-    }
-  
-    #cenario {
-      width: 70%;
-      height: auto;
-      border: none;
-    }
-  
-    #texto {
-      width: 35%;
-      left: 550px;
-      bottom: 50px;
-    }
-  
-    .falas {
-      bottom: 60px;
-      font-size: 0.9rem;
-    }
-  
-    .botaoRespostas {
-      width: 70%;
-      flex-wrap: wrap;
-    }
-  
-    #scroll-to-top {
-      bottom: 20px;
-      left: 10px;
-    }
-  
-    .gatito {
-      width: 20%;
-      height: auto;
-      top: 20%;
-      left: 10%;
-      transform: translate(-20%, -20%);
-    }
-    .falasTexto {
-      font-size: 18px;
-      margin-bottom: 10px;
-      margin-left: -190px;
-    }
-  }
-  
