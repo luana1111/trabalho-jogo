@@ -26,7 +26,7 @@ body {
 
 #playButton{
     background-color: #20B2AA;
-    height: 55px;
+    height: 45px;
     margin: 0 auto;
     border-radius: 5px;
     font-weight: bold;
@@ -150,6 +150,16 @@ h3 {
     width: 100%; 
     max-width: 300px; 
     margin: 0 auto;
+    background-color: #4e4e4f;
+    color: white;
+}
+
+#paqueras{
+    border: 2px solid #9370DB;
+}
+
+#liz{
+    margin-top: 55px;
 }
 
 /* Use unidades relativas para melhor responsividade */
@@ -158,6 +168,23 @@ h3 {
     padding-top: 2%;
 }
 
+#girando{
+    width: 90px;
+    height: auto;
+    margin-bottom: 20px;
+    animation: giraGatinho 2s forwards linear;
+}
+
+@keyframes giraGatinho {
+    from {
+      width: 0px;
+      transform: rotate(0deg);
+    }
+    to {
+      width: 90px;
+      transform: rotate(360deg);
+    }
+  }
 
 @media (max-width: 767px) {
     .card {
