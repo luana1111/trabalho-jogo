@@ -17,8 +17,7 @@
     <section>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="img/gatino_pixelArt.png" alt="Logo"
-                        id="logo"></a>
+                <a class="navbar-brand" href="../Principal/index.html"><img src="img/gatino_pixelArt.png" alt="Logo" id="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -27,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="sobre.html">Sobre nós</a>
+                            <a class="nav-link" href="../Principal/sobre.html">Sobre nós</a>
                         </li>
                     </ul>
                 </div>
@@ -40,27 +39,29 @@
         <div id="game-over-container"></div>
 
         <div class="initial-interface">
-            <button class="botao" id="playButton">Jogar</button>  
+            <button class="botao" id="playButton">Jogar</button>
         </div>
 
         <div class="game-interface" style="display: none;">
-        <div class="count">
-            <div class="moves">0 moves</div>
-            <div class="timer">time: 0 sec</div>
+            <div class="count">
+                <div class="moves">0 moves</div>
+                <div class="timer">time: 0 sec</div>
+            </div>
+
+            <div class="whack-text"></div>
         </div>
 
-        <div class="whack-text"></div>
+        <div class="board-container">
+            <div class="board" data-dimension="4"></div>
+            <div class="win">You won!</div>
+            <button class="botao2" id="playAgainButton"></button>
         </div>
-
-    <div class="board-container">
-        <div class="board" data-dimension="4"></div>
-        <div class="win">You won!</div>
-        <button class="botao2" id="playAgainButton"></button>
     </div>
-</div>
 
-<a href="../jogo1/index.html"><button id="scroll-to-top" class="btn btn-primary">Voltar para o jogo anterior</button></a>
-<a href="../jogo3/index.html"><button id="scroll-to-top2" class="btn btn-primary">Jogar mais jogos</button></a>
+    <a href="../jogo1/index.html"><button id="scroll-to-top" class="btn btn-primary">Voltar para o jogo
+            anterior</button></a>
+    <a href="../jogo3/index.html"><button id="scroll-to-top2" class="btn btn-primary">Jogar mais jogos</button></a>
 
 </body>
+
 </html>
