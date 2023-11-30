@@ -8,6 +8,7 @@ body {
     font-family: 'font_pixel', sans-serif;    
     background: #1f1f20;
     font-size: large;
+    overflow: auto;
     /* background-color: #dfbff0;  */
 }
 
@@ -46,15 +47,24 @@ a{
     align-items: center;
     width: 965px;
     margin: auto;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     height: 590px;
     padding: 24px;
     background: linear-gradient(135deg,  #9370DB 0%,#C78BA7 50%,#F5B5D3 100% );
+    border-radius: 5px;
  }
 
 .count {
     color: #fff;
     font-size: 14pt;
+}
+
+#board{
+    margin-bottom: 30px;
+}
+
+#playButton{
+    margin-bottom: 20px;
 }
 
 #board img {
