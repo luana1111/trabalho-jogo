@@ -1,77 +1,78 @@
 @font-face {
-    font-family: 'font_pixel'; 
-    src: url('fonts/Retro\ Gaming.ttf'); 
+    font-family: 'font_pixel';
+    src: url('fonts/Retro\ Gaming.ttf');
 }
 
 body {
     text-align: center;
-    font-family: 'font_pixel', sans-serif;    
+    font-family: 'font_pixel', sans-serif;
     background: #1f1f20;
     font-size: large;
     overflow: auto;
     /* background-color: #dfbff0;  */
 }
 
-#navbar{
+#navbar {
     background-color: #151414 !important;
 }
 
-#logo{
+#logo {
     height: 70px;
 }
 
-a{
+a {
     color: white !important;
     font-weight: 50rem;
 }
 
-#board {
-    width: 500px;
-    height: 500px;
-    background-color: #dbd7db;
-    border: 5px solid slategray;
-    border-radius: 10px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#board img {
-    width: 50px;
-    height: 50px;
-    margin-left: 3px;
-    margin-top: 4px;
-}
+/*Menu vem ate aqui*/
 
 .container-game {
     align-items: center;
     width: 965px;
     margin: auto;
-    margin-bottom: 50px;
-    height: 590px;
+    margin-bottom: 80px;
+    margin-top: 80px;
+    height: 670px;
     padding: 24px;
-    background: linear-gradient(135deg,  #9370DB 0%,#C78BA7 50%,#F5B5D3 100% );
+    background: linear-gradient(135deg, #9370DB 0%, #C78BA7 50%, #F5B5D3 100%);
     border-radius: 5px;
- }
+}
+
+.disabled {
+    color: #757575;
+}
 
 .count {
-    color: #fff;
+    color: #FFF;
     font-size: 14pt;
+
 }
 
-#board{
-    margin-bottom: 30px;
+.container-img {
+    position: relative;
 }
 
-#playButton{
-    margin-top: -10px;
-    margin-bottom: 10px;
+.board {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    margin-left: 70px;
+    margin-top: 20px;
 }
 
-#board img {
-    width: 50px; /* Defina a largura desejada */
-    height: 50px; /* Defina a altura desejada */
-  }
+.container-img.flipped .board {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.container-img.flipped {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.win-text {
+    color: white;
+}
 
 .botao {
     border: 2px solid #000;
@@ -81,7 +82,7 @@ a{
     background-color: #444;
     box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
     padding: 1px;
-    width:150px;
+    width: 150px;
     height: 38px;
     margin-top: 8px;
 }
@@ -99,6 +100,82 @@ a{
     margin-top: 8px;
 }
 
+.card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background: #282A3A;
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg) rotateZ(50deg);
+    font-size: 28pt;
+    user-select: none;
+    text-align: center;
+    line-height: 100px;
+    background: #FDF8E6;
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.win {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.win-text {
+    
+    top: 50%;
+    left: 50%;
+    font-size: 21px;
+} 
+
+.highlight {
+    color: #6f00fc;
+}
+
+.start-button {
+    background-color: #6f00fc;
+
+}
+
+.game-interface {
+    /* Adicione as propriedades de estilo necessárias para o contêiner da interface do jogo */
+    position: relative;
+}
+
+.whack-text {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 26px;
+    position: absolute;
+    top: 20px;
+    /* Ajuste a posição vertical conforme necessário */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 #scroll-to-top {
     position: fixed;
     bottom: 10px;
@@ -112,12 +189,13 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
-  #scroll-to-top2 {
+#scroll-to-top2 {
     position: fixed;
     bottom: 10px;
-    right: 5px; /* Alterado de left para right */
+    right: 5px;
+    /* Alterado de left para right */
     background-color: #20B2AA;
     border: none;
     border-radius: 5px;
@@ -128,4 +206,3 @@ a{
     align-items: center;
     justify-content: center;
 }
-  
