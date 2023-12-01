@@ -29,28 +29,37 @@ document.addEventListener('DOMContentLoaded', () => {
         playButton.style.display = 'none';
         countSection.style.display = 'block';
 
-        startTime = setInterval(() => {
-            timeCount.innerHTML = countDown;
-            countDown--;
-            if (countDown < 0) {
-                clearInterval(startGame);
-                clearInterval(startTime);
-                timeCount.innerHTML = "0";
-                showGameOverText();
-            }
-        }, 1000);
+        try {
+            startTime = setInterval(() => {
+                timeCount.innerHTML = countDown;
+                countDown--;
+                if (countDown < 0) {
+                    clearInterval(startGame);
+                    clearInterval(startTime);
+                    timeCount.innerHTML = "0";
+                    showGameOverText();
+                }
+            }, 1000);
 
-        startGame = setInterval(() => {
-            showMole();
-        }, 600);
+            startGame = setInterval(() => {
+                showMole();
+            }, 600);
+        } catch (error) {
+            console.error('An error occurred in the game:', error);
+        }
     }
 
     const initializeGame = () => {
-        countDown = 20;
-        score = 0;
-        scoreCount.innerHTML = score; // Zerar o placar
-        startGameFunction();
+        try {
+            countDown = 20;
+            score = 0;
+            scoreCount.innerHTML = score; // Reset score to zero
+            startGameFunction();
+        } catch (error) {
+            console.error('An error occurred during game initialization:', error);
+        }
     }
+
 
     playButton.addEventListener('click', startGameFunction);
 
