@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playAgainButton.setAttribute('class', 'botao2');
         playAgainButton.innerHTML = "Jogar Novamente";
         playAgainButton.addEventListener('click', () => {
-            resetGame();
+            location.reload();
         });
 
         gameOverContainer.appendChild(gameOverText);
