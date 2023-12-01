@@ -19,7 +19,6 @@ const state = {
 }
 
 const showGameOverText = () => {
-    selectors.count.style.display = 'none'; // Esconde a contagem de movimentos e tempo
     selectors.boardContainer.classList.add('flipped'); // Adiciona a classe para "virar" o tabuleiro
 
     // Cria a caixa de texto com o score
@@ -27,30 +26,18 @@ const showGameOverText = () => {
     gameOverContainer.setAttribute('class', 'game-over-container');
 
     const gameOverText = document.createElement('div');
-    gameOverText.innerHTML = "O tempo acabou! Seu score foi de " + state.totalFlips + " moves em " + state.totalTime + " segundos.";
+    gameOverText.textContent = "O tempo acabou! Seu score foi de " + state.totalFlips + " moves em " + state.totalTime + " segundos.";
 
     const playAgainButton = document.createElement('button');
     playAgainButton.setAttribute('class', 'botao2');
-    playAgainButton.innerHTML = "Jogar Novamente";
+    playAgainButton.textContent = "Jogar Novamente";
     playAgainButton.addEventListener('click', () => {
-        resetGame();
+        location.reload();
     });
-
     gameOverContainer.appendChild(gameOverText);
     gameOverContainer.appendChild(playAgainButton);
 
     selectors.boardContainer.appendChild(gameOverContainer);
-};
-
-const resetGame = () => {
-    // Adicione a lógica necessária para reiniciar o jogo
-    selectors.boardContainer.classList.remove('flipped'); // Remove a classe para "desvirar" o tabuleiro
-    selectors.gameInterface.style.display = 'block'; // Exibe a interface do jogo novamente
-
-    // Adicione outras lógicas de reinicialização aqui, se necessário
-
-    generateGame();
-    startGame();
 };
 
 const shuffle = array => {
@@ -73,7 +60,7 @@ const pickRandom = (array, items) => {
 
     for (let index = 0; index < items; index++) {
         const randomIndex = Math.floor(Math.random() * clonedArray.length)
-        
+
         randomPicks.push(clonedArray[randomIndex])
         clonedArray.splice(randomIndex, 1)
     }
@@ -89,7 +76,7 @@ const generateGame = () => {
     }
 
     const emojis = ['🐱', '🐈', '😹', '😻', '🙀', '😿', '😽', '😾', '😸', '🐾']
-    const picks = pickRandom(emojis, (dimensions * dimensions) / 2) 
+    const picks = pickRandom(emojis, (dimensions * dimensions) / 2)
     const items = shuffle([...picks, ...picks])
     const cards = `
         <div class="board" style="grid-template-columns: repeat(${dimensions}, auto)">
@@ -101,7 +88,7 @@ const generateGame = () => {
             `).join('')}
        </div>
     `
-    
+
     const parser = new DOMParser().parseFromString(cards, 'text/html')
 
     selectors.board.replaceWith(parser.querySelector('.board'))
@@ -109,7 +96,7 @@ const generateGame = () => {
 
 const startGame = () => {
     state.gameStarted = true
-    selectors.start.classList.add('disabled')
+    console.log("entrou")
 
     state.loop = setInterval(() => {
         state.totalTime++;
@@ -121,27 +108,32 @@ const startGame = () => {
         selectors.moves.innerText = `${state.totalFlips} moves`
         selectors.timer.innerText = `time: ${state.totalTime} sec`
     }, 1000)
+    endGame(true)
 }
 
 const endGame = (isWinner) => {
     clearInterval(state.loop);
 
     if (isWinner) {
-        selectors.boardContainer.classList.add('flipped');
-        selectors.win.innerHTML = `
-            <span class="win-text">
-                You won!<br />
-                with <span class="highlight">${state.totalFlips}</span> moves<br />
-                under <span class="highlight">${state.totalTime}</span> seconds
-            </span>
-        `;
+        console.log("ganhou")
+
+        selectors.boardContainer.classList.add('flipped')
+        selectors.win.innerHTML = "AAAAAAAAAAAAAAAAAAAAAAAA"
+        // selectors.win.innerHTML = `
+        //     <span class="win-text">You won!<br/>with
+        //     <span class="highlight">${state.totalFlips}
+        //     </span> moves<br/>under 
+        //     <span class="highlight">${state.totalTime}
+        //     </span> seconds</span>`
     } else {
-        selectors.boardContainer.classList.add('flipped');
-        selectors.win.innerHTML = `
-            <span class="win-text">
-                You lost! Better luck next time.
-            </span>
-        `;
+        //showGameOverText();
+
+        //selectors.boardContainer.classList.add('flipped');
+        // selectors.win.innerHTML = `
+        //     <span class="win-text">
+        //         You lost! Better luck next time.
+        //     </span>
+        // `;
     }
 };
 
@@ -151,17 +143,13 @@ selectors.start.addEventListener('click', () => {
     selectors.start.style.display = 'none';
     selectors.gameInterface.style.display = 'block';
 
-    setTimeout(() => {
-        showGameOverText(); // Chama a função para mostrar a mensagem de "O tempo acabou" após 60 segundos
-    }, state.timeLimit * 1000); // Aguarda 60 segundos antes de chamar a função
+    // setTimeout(() => {
+    //      showGameOverText(); // Chama a função para mostrar a mensagem de "O tempo acabou" após 60 segundos
+    // }, state.timeLimit * 1000); // Aguarda 60 segundos antes de chamar a função
 });
 
 const playAgainButton = document.getElementById('playAgainButton');
 
-playAgainButton.addEventListener('click', () => {
-    // Adicione a lógica necessária para reiniciar o jogo
-    resetGame();
-});
 
 const flipBackCards = () => {
     document.querySelectorAll('.card:not(.matched)').forEach(card => {
@@ -176,6 +164,7 @@ const flipCard = card => {
     state.totalFlips++
 
     if (!state.gameStarted) {
+        console.log("chamou 174")
         startGame()
     }
 
@@ -198,28 +187,9 @@ const flipCard = card => {
 
     // If there are no more cards that we can flip, we won the game
     if (!document.querySelectorAll('.card:not(.flipped)').length) {
-        setTimeout(() => {
-            selectors.boardContainer.classList.add('flipped')
-            selectors.win.innerHTML = `
-                <span class="win-text">
-                    You won!<br />
-                    with <span class="highlight">${state.totalFlips}</span> moves<br />
-                    under <span class="highlight">${state.totalTime}</span> seconds
-                </span>
-            `
-
-            clearInterval(state.loop)
-        }, 1000)
+        endGame(true);
     }
 }
-
-selectors.start.addEventListener('click', () => {
-    generateGame();
-    startGame();
-    selectors.start.style.display = 'none';
-    selectors.gameInterface.style.display = 'block';
-});
-
 const attachEventListeners = () => {
     document.addEventListener('click', event => {
         const eventTarget = event.target
@@ -233,5 +203,4 @@ const attachEventListeners = () => {
     })
 }
 
-generateGame()
 attachEventListeners()
