@@ -64,7 +64,8 @@ a{
 }
 
 #playButton{
-    margin-bottom: 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
 }
 
 #board img {
@@ -81,6 +82,19 @@ a{
     box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
     padding: 1px;
     width:150px;
+    height: 38px;
+    margin-top: 8px;
+}
+
+.botao2 {
+    border: 2px solid #000;
+    border-radius: 3px;
+    font-size: 14pt;
+    color: #a27fe9;
+    background-color: #444;
+    box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+    padding: 1px;
+    width: 350px;
     height: 38px;
     margin-top: 8px;
 }
