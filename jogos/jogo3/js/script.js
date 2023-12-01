@@ -89,14 +89,14 @@ function clearBoard() {
 }
 
 // Função chamada quando a página é carregada
-window.onload = function() {
-    playButton.addEventListener("click", function() {
+window.onload = function () {
+    playButton.addEventListener("click", function () {
         playButton.style.display = "none";
         startGame();
     });
 
     // Executa as funções a cada 1/10 de segundo
-    window.setInterval(function(){
+    window.setInterval(function () {
         crushCandy();
         slideCandy();
         generateCandy();
@@ -144,10 +144,10 @@ function dragEnd() {
     let c2 = parseInt(otherCoords[1]);
 
     // Verifica se o movimento é adjacente
-    let moveLeft = c2 == c-1 && r == r2;
-    let moveRight = c2 == c+1 && r == r2;
-    let moveUp = r2 == r-1 && c == c2;
-    let moveDown = r2 == r+1 && c == c2;
+    let moveLeft = c2 == c - 1 && r == r2;
+    let moveRight = c2 == c + 1 && r == r2;
+    let moveUp = r2 == r - 1 && c == c2;
+    let moveDown = r2 == r + 1 && c == c2;
     let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
 
     // Se o movimento for adjacente, troca as peças
@@ -175,19 +175,20 @@ function crushCandy() {
     document.getElementById("score").innerText = score;
 }
 
+
 // Função para esmagar grupos de três peças em linhas e colunas
 function crushThree() {
     // Verifica as linhas
     for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < columns-2; c++) {
+        for (let c = 0; c < columns - 2; c++) {
             let cat1 = board[r][c];
-            let cat2 = board[r][c+1];
-            let cat3 = board[r][c+2];
+            let cat2 = board[r][c + 1];
+            let cat3 = board[r][c + 2];
             if (cat1.src == cat2.src && cat2.src == cat3.src && !cat1.src.includes("blank")) {
                 // Troca as peças por novas imagens e aumenta a pontuação
-                cat1.src = "./images/cat1.png";
-                cat2.src = "./images/cat2.png";
-                cat3.src = "./images/cat3.png";
+                cat1.src = "./images/" + randomCandy() + ".png";
+                cat2.src = "./images/" + randomCandy() + ".png";
+                cat3.src = "./images/" + randomCandy() + ".png";
                 score += 30;
             }
         }
@@ -195,15 +196,15 @@ function crushThree() {
 
     // Verifica as colunas
     for (let c = 0; c < columns; c++) {
-        for (let r = 0; r < rows-2; r++) {
+        for (let r = 0; r < rows - 2; r++) {
             let cat1 = board[r][c];
-            let cat2 = board[r+1][c];
-            let cat3 = board[r+2][c];
+            let cat2 = board[r + 1][c];
+            let cat3 = board[r + 2][c];
             if (cat1.src == cat2.src && cat2.src == cat3.src && !cat1.src.includes("blank")) {
                 // Troca as peças por novas imagens e aumenta a pontuação
-                cat1.src = "./images/cat4.png";
-                cat2.src = "./images/cat5.png";
-                cat3.src = "./images/cat6.png";
+                cat1.src = "./images/" + randomCandy() + ".png";
+                cat2.src = "./images/" + randomCandy() + ".png";
+                cat3.src = "./images/" + randomCandy() + ".png";
                 score += 30;
             }
         }
@@ -214,10 +215,10 @@ function crushThree() {
 function checkValid() {
     // Verifica as linhas
     for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < columns-2; c++) {
+        for (let c = 0; c < columns - 2; c++) {
             let cat1 = board[r][c];
-            let cat2 = board[r][c+1];
-            let cat3 = board[r][c+2];
+            let cat2 = board[r][c + 1];
+            let cat3 = board[r][c + 2];
             if (cat1.src == cat2.src && cat2.src == cat3.src && !cat1.src.includes("blank")) {
                 // Se encontrar um grupo de três peças, retorna verdadeiro (movimento válido)
                 return true;
@@ -227,10 +228,10 @@ function checkValid() {
 
     // Verifica as colunas
     for (let c = 0; c < columns; c++) {
-        for (let r = 0; r < rows-2; r++) {
+        for (let r = 0; r < rows - 2; r++) {
             let cat1 = board[r][c];
-            let cat2 = board[r+1][c];
-            let cat3 = board[r+2][c];
+            let cat2 = board[r + 1][c];
+            let cat3 = board[r + 2][c];
             if (cat1.src == cat2.src && cat2.src == cat3.src && !cat1.src.includes("blank")) {
                 // Se encontrar um grupo de três peças, retorna verdadeiro (movimento válido)
                 return true;
@@ -246,7 +247,7 @@ function checkValid() {
 function slideCandy() {
     for (let c = 0; c < columns; c++) {
         let ind = rows - 1;
-        for (let r = columns-1; r >= 0; r--) {
+        for (let r = rows - 1; r >= 0; r--) {
             if (!board[r][c].src.includes("blank")) {
                 // Desliza as peças para baixo
                 board[ind][c].src = board[r][c].src;
@@ -256,17 +257,36 @@ function slideCandy() {
 
         // Preenche as células vazias com peças novas na parte superior
         for (let r = ind; r >= 0; r--) {
-            board[r][c].src = "./images/blank.png";
+            board[r][c].src = "./images/" + randomCandy() + ".png";
         }
     }
 }
 
 // Função para gerar novas peças na parte superior do tabuleiro
 function generateCandy() {
-    for (let c = 0; c < columns;  c++) {
+    for (let c = 0; c < columns; c++) {
         if (board[0][c].src.includes("blank")) {
             // Se a célula superior estiver vazia, gera uma nova peça
             board[0][c].src = "./images/" + randomCandy() + ".png";
         }
     }
+}
+
+
+function endGame() {
+    clearInterval(timerInterval);
+    showGameOverText();
+}
+
+function showGameOverText() {
+    scoreDisplay.style.display = "none";
+    boardDiv.style.display = "none";
+    let gameOverContainer = document.getElementById('gameOverContainer');
+    let gameOverText = document.getElementById('gameOverText');
+    gameOverText.innerText = "O tempo acabou! Seu score foi de " + score;
+    gameOverContainer.style.display = "block";
+}
+
+function playAgain() {
+    location.reload();
 }
