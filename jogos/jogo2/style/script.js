@@ -4,9 +4,11 @@ const selectors = {
     moves: document.querySelector('.moves'),
     timer: document.querySelector('.timer'),
     start: document.querySelector('#playButton'),
-    win: document.querySelector('.win'),
+    win: document.querySelector('.game-interface'), // Alterado para corresponder ao elemento correto
     initialInterface: document.querySelector('.initial-interface'),
-    gameInterface: document.querySelector('.game-interface')
+    gameInterface: document.querySelector('.game-interface'),
+    winMessage: document.querySelector('.win-message'),
+    playAgainButton: document.querySelector('#playAgainButton')
 }
 
 const state = {
@@ -17,6 +19,36 @@ const state = {
     loop: null,
     timeLimit: 60
 }
+
+const showWinMessage = () => {
+    selectors.boardContainer.classList.add('flipped');
+
+    const winContainer = document.createElement('div');
+    winContainer.setAttribute('class', 'win-container');
+
+    const winText = document.createElement('div');
+    winText.textContent = 'Você venceu!';
+
+    const playAgainButton = document.createElement('button');
+    playAgainButton.setAttribute('id', 'playAgainButton');
+    playAgainButton.textContent = 'Jogar Novamente';
+    playAgainButton.addEventListener('click', () => {
+        location.reload();
+    });
+
+    winContainer.appendChild(winText);
+    winContainer.appendChild(playAgainButton);
+
+    selectors.winMessage.appendChild(winContainer);
+};
+
+const checkWinCondition = () => {
+    if (document.querySelectorAll('.card:not(.matched)').length === 0) {
+        endGame(true);
+        showWinMessage(); // Chama a função showWinMessage quando o jogo é vencido
+    }
+};
+
 
 const showGameOverText = () => {
     selectors.boardContainer.classList.add('flipped'); // Adiciona a classe para "virar" o tabuleiro
@@ -95,8 +127,7 @@ const generateGame = () => {
 }
 
 const startGame = () => {
-    state.gameStarted = true
-    console.log("entrou")
+    state.gameStarted = true;
 
     state.loop = setInterval(() => {
         state.totalTime++;
@@ -105,47 +136,42 @@ const startGame = () => {
             endGame(false); // false indica que o jogador perdeu
         }
 
-        selectors.moves.innerText = `${state.totalFlips} moves`
-        selectors.timer.innerText = `time: ${state.totalTime} sec`
-    }, 1000)
-    endGame(true)
+        selectors.moves.innerText = `${state.totalFlips} moves`;
+        selectors.timer.innerText = `time: ${state.totalTime} sec`;
+    }, 1000);
+    //endGame(true)
 }
 
 const endGame = (isWinner) => {
     clearInterval(state.loop);
 
     if (isWinner) {
-        console.log("ganhou")
-
-        selectors.boardContainer.classList.add('flipped')
-        selectors.win.innerHTML = "AAAAAAAAAAAAAAAAAAAAAAAA"
-        // selectors.win.innerHTML = `
-        //     <span class="win-text">You won!<br/>with
-        //     <span class="highlight">${state.totalFlips}
-        //     </span> moves<br/>under 
-        //     <span class="highlight">${state.totalTime}
-        //     </span> seconds</span>`
+        selectors.boardContainer.classList.add('flipped');
+        selectors.win.style.display = 'block';
+        selectors.win.querySelector('.win-text').innerHTML = `
+                You won!<br/>with
+                <span class="highlight">${state.totalFlips}</span> moves<br/>under 
+                <span class="highlight">${state.totalTime}</span> seconds
+            `;
     } else {
-        //showGameOverText();
-
-        //selectors.boardContainer.classList.add('flipped');
-        // selectors.win.innerHTML = `
-        //     <span class="win-text">
-        //         You lost! Better luck next time.
-        //     </span>
-        // `;
+        showGameOverText();
+        selectors.boardContainer.classList.add('flipped');
+        selectors.win.innerHTML = `
+                <span class="win-text">
+                    You lost! Better luck next time.
+                </span>
+            `;
     }
 };
 
 selectors.start.addEventListener('click', () => {
     generateGame();
-    startGame();
     selectors.start.style.display = 'none';
     selectors.gameInterface.style.display = 'block';
 
-    // setTimeout(() => {
-    //      showGameOverText(); // Chama a função para mostrar a mensagem de "O tempo acabou" após 60 segundos
-    // }, state.timeLimit * 1000); // Aguarda 60 segundos antes de chamar a função
+    setTimeout(() => {
+        showGameOverText();
+    }, state.timeLimit * 1000);
 });
 
 const playAgainButton = document.getElementById('playAgainButton');
@@ -184,23 +210,25 @@ const flipCard = card => {
             flipBackCards()
         }, 1000)
     }
+    checkWinCondition();
 
     // If there are no more cards that we can flip, we won the game
     if (!document.querySelectorAll('.card:not(.flipped)').length) {
         endGame(true);
     }
 }
+
 const attachEventListeners = () => {
     document.addEventListener('click', event => {
-        const eventTarget = event.target
-        const eventParent = eventTarget.parentElement
+        const eventTarget = event.target;
+        const eventParent = eventTarget.parentElement;
 
         if (eventTarget.className.includes('card') && !eventParent.className.includes('flipped')) {
-            flipCard(eventParent)
-        } else if (eventTarget.nodeName === 'BUTTON' && !eventTarget.className.includes('disabled')) {
-            startGame()
+            flipCard(eventParent);
+        } else if (eventTarget.nodeName === 'BUTTON' && eventTarget.id === 'playButton') {
+            startGame();
         }
-    })
-}
+    });
+};
 
-attachEventListeners()
+attachEventListeners();
